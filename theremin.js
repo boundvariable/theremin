@@ -1,10 +1,12 @@
-c = new AudioContext()
-o = c.createOscillator()
+c=new AudioContext()
+o=c.createOscillator()
 o.frequency.value = 261.63
-g = c.createGain()
+g=c.createGain()
 g.gain.value = 0.05
 o.start(0)
 o.connect(c.destination)
+x=0
 onclick=function(){
-  Puck.write('LED1.set();\n')
+  x=!x
+  Puck.write('LED1.write('+x+');\n')
 }
