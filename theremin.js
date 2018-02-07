@@ -6,11 +6,26 @@ g.gain.value = 0.05
 g.connect(c.destination)
 o.start(0)
 o.connect(g)
-a=0
-onclick=function(){
-  a = !a;
-  a ? Puck.magOn() : Puck.magOff()
-  Puck.on('mag', function(m) {
-    console.log(mag);
+c=0
+n = '\n'
+onclick=function(){  
+  if (c) {
+    c.close()
+    c = undefined
+    return
+  }
+  Puck.connect(function(k) {
+    if (!k) return
+    c=k
+    b=''
+    c.on('data', function(d) {
+      b+=c
+      i=b.indexOf(n)
+      while (i>=0) {
+        ln(b.substr(0,i))
+        b=b.substr(i+1)
+        i=b.indexOf(n)
+      }
+    })
   })
 }
