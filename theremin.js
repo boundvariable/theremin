@@ -3,6 +3,7 @@ o=c.createOscillator()
 o.frequency.value = 261.63
 g=c.createGain()
 g.gain.value = 0.05
+g.connect(o.destination)
 o.start(0)
 o.connect(g)
 x=0
