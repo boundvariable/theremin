@@ -14,14 +14,16 @@ function ln(l) {
 onclick=function(){  
   if (c) {
     c.close()
-    c = undefined
+    c = 0
     return
   }
   Puck.connect(function(k) {
     if (!k) return
     c=k
     b=''
+    console.log(c)
     c.on('data', function(d) {
+      console.log(d)
       b+=c
       i=b.indexOf(n)
       while (i>=0) {
