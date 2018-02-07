@@ -5,3 +5,4 @@ g = c.createGain();
 g.gain.value = 0.05;
 o.start(0);
 o.connect(c.destination);
+Puck.write('LED1.set();\n');
