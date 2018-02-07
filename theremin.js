@@ -8,6 +8,9 @@ o.start(0)
 o.connect(g)
 c=0
 n = '\n'
+function ln(l) {
+  console.log(l);
+}
 onclick=function(){  
   if (c) {
     c.close()
