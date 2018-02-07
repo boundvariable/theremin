@@ -3,11 +3,14 @@ o=c.createOscillator()
 o.frequency.value = 261.63
 g=c.createGain()
 g.gain.value = 0.05
-g.connect(o.destination)
+g.connect(c.destination)
 o.start(0)
 o.connect(g)
-x=0
+a=0
 onclick=function(){
-  x=!x
-  Puck.write('LED1.write('+x+');\n')
+  a = !a;
+  a ? Puck.magOn() : Puck.magOff()
+  Puck.on('mag', function(m) {
+    console.log(mag);
+  })
 }
