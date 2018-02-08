@@ -1,4 +1,3 @@
-f0 = -1
 c=new AudioContext()
 o=c.createOscillator()
 o.frequency.value = 329.628
@@ -25,7 +24,7 @@ o.start(0)
 o.connect(xx)
 xx.connect(g)
 c=0
-n = "\n"
+n="\n"
 function ln(_) {
   var l = {};
   try { 
@@ -34,15 +33,15 @@ function ln(_) {
     return
   }
   console.log(l)
-  if (!l.z && !l.v) return
-  if (l.z) {
-    if (f0 === -1) f0 = l.z
-    console.log(Math.round((f0 - l.z)/100)*100)
-    o.detune.value = Math.round((f0 - l.z)/100)*100
+  if(!l.z && !l.v) return
+  if(l.z) {
+    console.log(Math.round((z0 - l.z)/100)*100)
+    p=Math.atan2(l.y, l.x) / Math.PI;
+    o.detune.value = Math.round(p*1000)
   }
-  if (l.v === 'on') {
+  if(l.v === 'on'){
     g.gain.value = 0.1 
-  } else if (l.v === 'off') {
+  } else if(l.v === 'off'){
     g.gain.value = 0
   }
 }
@@ -53,13 +52,13 @@ onclick=function(){
     return
   }
   Puck.connect(function(k) {
-    if (!k) return
+    if(!k) return
     c=k
     b=''
     c.on("data",function(d) {
       b+=d
       i=b.indexOf(n)
-      while (i>=0) {
+      while(i>=0) {
         ln(b.substr(0,i))
         b=b.substr(i+1)
         i=b.indexOf(n)
