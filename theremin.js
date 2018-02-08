@@ -1,12 +1,10 @@
 f0 = -1
 v0 = -1
-e = 329.628
-q = 0.1
 c=new AudioContext()
 o=c.createOscillator()
-o.frequency.value = e 
+o.frequency.value = 329.628
 g=c.createGain()
-g.gain.value = q
+g.gain.value = 0.1
 g.connect(c.destination)
 o.start(0)
 o.connect(g)
@@ -23,9 +21,7 @@ function ln(_) {
     f0 = l.z
     v0 = l.x
   }
-  o.frequency.value = e + f0 - l.z  
-  //g.gain.value = v + q0 - l.z  
-  console.log(l.z, l.x, l.y);
+  o.frequency.detune = (f0 - l.z) * 10  
 }
 onclick=function(){  
   if (c) {
