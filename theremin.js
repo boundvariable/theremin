@@ -17,8 +17,7 @@ function ln(_) {
   }
   if (!l.z) return
   if (f0 === -1) f0 = l.z
-  o.detune.value = Math.round((f0 - l.z)/100)*100;  
-  console.log(Math.round((f0 - l.z)/10)*100);
+  o.detune.value = Math.round((f0 - l.z)/100)*100
   g.gain.value = 0.1
 }
 onclick=function(){  
