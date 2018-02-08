@@ -34,7 +34,7 @@ onclick=function(){
     })
     c.write("reset();\n")
     setTimeout(function(){
-      c.write("Puck.magOn();Puck.on('mag',function(m){Bluetooth.println(m);});NRF.on('disconnect', function() {reset()});\n")
+      c.write("Puck.magOn();Puck.on('mag',function(m){Bluetooth.println(JSON.stringify(m));});NRF.on('disconnect', function() {reset()});\n")
     }, 1500);
   })
 }
