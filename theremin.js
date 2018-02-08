@@ -27,6 +27,7 @@ xx.connect(g)
 c=0
 n = "\n"
 function ln(_) {
+  var l = {};
   try { 
     l = JSON.parse(_)
   } catch (e) {
