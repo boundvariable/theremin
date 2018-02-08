@@ -35,7 +35,7 @@ function ln(_) {
   console.log(l)
   if(!l.z && !l.v) return
   if(l.z) {
-    o.detune.value = Math.round(l.z/100)*200
+    o.detune.value = Math.round(l.z/100)*300
   }
   if(l.v === 'on'){
     g.gain.value = 0.1 
@@ -64,7 +64,7 @@ onclick=function(){
     })
     c.write("reset();\n")
     setTimeout(function(){
-      c.write("Puck.magOn();Bluetooth.println(JSON.stringify(Puck.mag()));Puck.on('mag',function(m){Bluetooth.println(JSON.stringify(m));});setWatch(function(){Bluetooth.println(JSON.stringify({v:'on'}))},BTN,{edge:'rising',repeat:true});setWatch(function(){Bluetooth.println(JSON.stringify({v:'off'}))},BTN,{edge:'falling',repeat:true});NRF.on('disconnect',function(){reset()});\n")
+      c.write("Puck.magOn();Bluetooth.println(JSON.stringify(Puck.mag()));Puck.on('mag',function(m){Bluetooth.println(JSON.stringify(m));});setWatch(function(){var m=Puck.mag();Bluetooth.println(JSON.stringify({v:'on' z: m.z}))},BTN,{edge:'rising',repeat:true});setWatch(function(){Bluetooth.println(JSON.stringify({v:'off'}))},BTN,{edge:'falling',repeat:true});NRF.on('disconnect',function(){reset()});\n")
     }, 1500);
   })
 }
