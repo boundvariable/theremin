@@ -35,7 +35,6 @@ function ln(_) {
   console.log(l)
   if(!l.z && !l.v) return
   if(l.z) {
-    console.log(Math.round((z0 - l.z)/100)*100)
     p=Math.atan2(l.y, l.x) / Math.PI;
     o.detune.value = Math.round(p*1000)
   }
