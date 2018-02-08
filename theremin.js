@@ -35,7 +35,7 @@ function ln(_) {
   console.log(l)
   if(!l.z && !l.v) return
   if(l.z) {
-    o.detune.value = Math.round(l.z*10)
+    o.detune.value = Math.round(l.z/100)*200
   }
   if(l.v === 'on'){
     g.gain.value = 0.1 
