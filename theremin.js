@@ -20,6 +20,7 @@ function ln(l) {
   }
   o.frequency.value = e + f0 - l.z  
   //g.gain.value = v + q0 - l.z
+  
   console.log(l.z, l.x, l.y);
 }
 onclick=function(){  
