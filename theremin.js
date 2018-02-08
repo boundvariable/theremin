@@ -3,10 +3,27 @@ c=new AudioContext()
 o=c.createOscillator()
 o.frequency.value = 329.628
 g=c.createGain()
+xx=audioCtx.createWaveShaper();
+function mxx(amount) {
+  var k = typeof amount === 'number' ? amount : 50,
+    n_samples = 44100,
+    curve = new Float32Array(n_samples),
+    deg = Math.PI / 180,
+    i = 0,
+    x;
+  for ( ; i < n_samples; ++i ) {
+    x = i * 2 / n_samples - 1;
+    curve[i] = ( 3 + k ) * x * 20 * deg / ( Math.PI + k * Math.abs(x) );
+  }
+  return curve;
+}
+xx.curve = mxx(400);
+xx.oversample = '4x';
 g.gain.value = 0
 g.connect(c.destination)
 o.start(0)
-o.connect(g)
+o.connect(xx)
+xx.connect(g)
 c=0
 n = "\n"
 function ln(_) {
