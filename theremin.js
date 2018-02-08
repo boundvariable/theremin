@@ -5,16 +5,12 @@ g=c.createGain()
 w=c.createWaveShaper()
 db=document.body
 function mx(k){
-  var n_ = 44100,
-    curve=new Float32Array(n_),
-    deg=Math.PI/180,
-    i = 0,
-    x;
-  for(; i < n_; ++i){
-    x = i * 2 / n_ - 1
-    curve[i]=(3+k)*x*20*deg/(Math.PI+k*Math.abs(x))
-  }
-  return curve;
+var n_ = 44100,curve=new Float32Array(n_),deg=Math.PI/180,i = 0,x;
+for(; i < n_; ++i){
+x = i * 2 / n_ - 1
+curve[i]=(3+k)*x*20*deg/(Math.PI+k*Math.abs(x))
+}
+return curve
 }
 w.curve = mx(400);
 w.oversample = '4x';
@@ -26,29 +22,26 @@ w.connect(g)
 c=0
 n="\n"
 function q(_){
-  l={};
-  try { 
-    l=JSON.parse(_)
-  } catch(e) {
-    return
-  }
-  if(!l.z && !l.v) return
-  if(l.z) o.detune.value=Math.round(l.z/100)*300
-  if(l.v==='on') g.gain.value=0.1 
-  if(l.v==='off') g.gain.value=0
+l={}
+try { 
+l=JSON.parse(_)
+}catch(e) {
+return
+}
+if(!l.z && !l.v) return
+if(l.z) o.detune.value=Math.round(l.z/100)*300
+if(l.v==='on') g.gain.value=0.1 
+if(l.v==='off') g.gain.value=0
 }
 onclick=function(){
   if(c){
-    db.style.background='red';
+    db.style.background='red'
     c.write("Puck.magOff();\n")
-    c.write("reset();\n")
-    setTimeout(function(){
-      c.close()
-      c=0
-    },1500)
+    c.close()
+    c=0
     return
   }
-  db.style.background='green';
+  db.style.background='green'
   Puck.connect(function(k){
     if(!k) return
     c=k
