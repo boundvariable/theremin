@@ -19,7 +19,7 @@ function ln(l) {
   }
   o.frequency.value = e + e0 - l.z  
   //g.gain.value = v + v0 - l.z
-  console.log(1.z, 1.x, 1.y);
+  console.log(l.z, l.x, l.y);
 }
 onclick=function(){  
   if (c) {
