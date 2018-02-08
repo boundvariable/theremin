@@ -12,15 +12,19 @@ o.start(0)
 o.connect(g)
 c=0
 n = "\n"
-function ln(l) {
+function ln(_) {
+  try { 
+    l = JSON.parse(_)
+  } catch (e) {
+    return
+  }
   if (!l.z) return
   if (e === -1) {
     f0 = l.z
     v0 = l.x
   }
   o.frequency.value = e + f0 - l.z  
-  //g.gain.value = v + q0 - l.z
-  
+  //g.gain.value = v + q0 - l.z  
   console.log(l.z, l.x, l.y);
 }
 onclick=function(){  
