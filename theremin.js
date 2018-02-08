@@ -1,4 +1,4 @@
-p0 = -1
+f0 = -1
 v0 = -1
 e = 329.628
 v = 0.1
@@ -14,10 +14,10 @@ c=0
 n = "\n"
 function ln(l) {
   if (e === -1) {
-    e0 = l.z
+    f0 = l.z
     v0 = l.x
   }
-  o.frequency.value = e + e0 - l.z  
+  o.frequency.value = e + f0 - l.z  
   //g.gain.value = v + v0 - l.z
   console.log(l.z, l.x, l.y);
 }
