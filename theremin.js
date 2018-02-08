@@ -32,6 +32,7 @@ function ln(_) {
   } catch (e) {
     return
   }
+  console.log(l)
   if (!l.z && !l.v) return
   if (l.z) {
     if (f0 === -1) f0 = l.z
