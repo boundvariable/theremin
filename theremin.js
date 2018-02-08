@@ -1,5 +1,4 @@
 f0 = -1
-v0 = -1
 c=new AudioContext()
 o=c.createOscillator()
 o.frequency.value = 329.628
@@ -17,10 +16,7 @@ function ln(_) {
     return
   }
   if (!l.z) return
-  if (f0 === -1) {
-    f0 = l.z
-    v0 = l.x
-  }
+  if (f0 === -1) f0 = l.z
   o.frequency.detune = (f0 - l.z) * 10  
   g.gain.value = 0.1
 }
