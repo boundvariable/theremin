@@ -66,7 +66,7 @@ onclick=function(){
     })
     c.write("reset();\n")
     setTimeout(function(){
-      c.write("Puck.magOn();Bluetooth.println(JSON.stringify(Puck.mag()));Puck.on('mag',function(m){Bluetooth.println(JSON.stringify(m));});setWatch(function(){Bluetooth.println(JSON.stringify({v:1}))},BTN,{edge:'rising',debounce:50});setWatch(function(){Bluetooth.println(JSON.stringify({v:0}))},BTN,{edge:'falling',debounce:50});NRF.on('disconnect',function(){reset()});\n")
+      c.write("Puck.magOn();Bluetooth.println(JSON.stringify(Puck.mag()));Puck.on('mag',function(m){Bluetooth.println(JSON.stringify(m));});setWatch(function(){Bluetooth.println(JSON.stringify({v:1}))},BTN,{edge:'rising',repeat:true});setWatch(function(){Bluetooth.println(JSON.stringify({v:0}))},BTN,{edge:'falling',repeat:true});NRF.on('disconnect',function(){reset()});\n")
     }, 1500);
   })
 }
