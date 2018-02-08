@@ -21,10 +21,8 @@ onclick=function(){
     if (!k) return
     c=k
     b=''
-    console.log(c)
     c.on('data', function(d) {
-      console.log(d)
-      b+=c
+      b+=d
       i=b.indexOf(n)
       while (i>=0) {
         ln(b.substr(0,i))
