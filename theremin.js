@@ -7,9 +7,11 @@ g.connect(c.destination)
 o.start(0)
 o.connect(g)
 c=0
-n = '\n'
+n = "\n"
+ll = {};
 function ln(l) {
-  console.log(l);
+  console.log(l)
+  ll = l
 }
 onclick=function(){  
   if (c) {
@@ -21,7 +23,7 @@ onclick=function(){
     if (!k) return
     c=k
     b=''
-    c.on('data', function(d) {
+    c.on("data",function(d) {
       b+=d
       i=b.indexOf(n)
       while (i>=0) {
@@ -30,5 +32,9 @@ onclick=function(){
         i=b.indexOf(n)
       }
     })
+    c.write("reset();\n")
+    setTimeout(function(){
+      c.write("Puck.magOn();Puck.on('mag',function(m){Bluetooth.println(m);});NRF.on('disconnect', function() {reset()});\n")
+    }, 1500);
   })
 }
