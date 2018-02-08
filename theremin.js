@@ -3,7 +3,7 @@ c=new AudioContext()
 o=c.createOscillator()
 o.frequency.value = 329.628
 g=c.createGain()
-xx=audioCtx.createWaveShaper();
+xx=c.createWaveShaper();
 function mxx(amount) {
   var k = typeof amount === 'number' ? amount : 50,
     n_samples = 44100,
