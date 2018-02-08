@@ -13,6 +13,7 @@ o.connect(g)
 c=0
 n = "\n"
 function ln(l) {
+  if (!l.z) return
   if (e === -1) {
     f0 = l.z
     v0 = l.x
