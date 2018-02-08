@@ -24,7 +24,7 @@ o.connect(w)
 w.connect(g)
 c=0
 n="\n"
-function w(_) {
+function q(_) {
   var l={};
   try { 
     l=JSON.parse(_)
@@ -61,7 +61,7 @@ onclick=function(){
       b+=d
       i=b.indexOf(n)
       while(i>=0) {
-        w(b.substr(0,i))
+        q(b.substr(0,i))
         b=b.substr(i+1)
         i=b.indexOf(n)
       }
